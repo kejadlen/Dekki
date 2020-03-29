@@ -14,7 +14,6 @@
 		DEE5404324305B8D00C04B18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE5404224305B8D00C04B18 /* Assets.xcassets */; };
 		DEE5404624305B8D00C04B18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEE5404424305B8D00C04B18 /* LaunchScreen.storyboard */; };
 		DEE5405124305B8D00C04B18 /* DekkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5405024305B8D00C04B18 /* DekkiTests.swift */; };
-		DEE5405C24305E2400C04B18 /* SuitExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5405B24305E2400C04B18 /* SuitExerciseCell.swift */; };
 		DEE5405E24305E3E00C04B18 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5405D24305E3E00C04B18 /* Models.swift */; };
 		DEE540622430624400C04B18 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE540612430624400C04B18 /* WorkoutViewController.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		DEE5404C24305B8D00C04B18 /* DekkiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DekkiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE5405024305B8D00C04B18 /* DekkiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DekkiTests.swift; sourceTree = "<group>"; };
 		DEE5405224305B8D00C04B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DEE5405B24305E2400C04B18 /* SuitExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuitExerciseCell.swift; sourceTree = "<group>"; };
 		DEE5405D24305E3E00C04B18 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		DEE540612430624400C04B18 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +88,6 @@
 				DEE5405D24305E3E00C04B18 /* Models.swift */,
 				DEE5403B24305B8C00C04B18 /* SceneDelegate.swift */,
 				DEE5403D24305B8C00C04B18 /* SetupDeckViewController.swift */,
-				DEE5405B24305E2400C04B18 /* SuitExerciseCell.swift */,
 				DEE540612430624400C04B18 /* WorkoutViewController.swift */,
 				DEE5404224305B8D00C04B18 /* Assets.xcassets */,
 				DEE5404424305B8D00C04B18 /* LaunchScreen.storyboard */,
@@ -212,7 +209,6 @@
 				DEE540622430624400C04B18 /* WorkoutViewController.swift in Sources */,
 				DEE5403E24305B8C00C04B18 /* SetupDeckViewController.swift in Sources */,
 				DEE5403A24305B8C00C04B18 /* AppDelegate.swift in Sources */,
-				DEE5405C24305E2400C04B18 /* SuitExerciseCell.swift in Sources */,
 				DEE5403C24305B8C00C04B18 /* SceneDelegate.swift in Sources */,
 				DEE5405E24305E3E00C04B18 /* Models.swift in Sources */,
 			);
