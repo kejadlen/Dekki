@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE7524C02430EB2500B924F8 /* SetupExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7524BF2430EB2500B924F8 /* SetupExerciseViewController.swift */; };
+		DE7524C22430EB5100B924F8 /* WorkoutStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7524C12430EB5100B924F8 /* WorkoutStatusViewController.swift */; };
+		DE7524C42430EB7000B924F8 /* WorkoutDeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7524C32430EB7000B924F8 /* WorkoutDeckViewController.swift */; };
+		DE7524CE2430FBE000B924F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE7524D02430FBE000B924F8 /* Localizable.strings */; };
+		DE7524D32431001D00B924F8 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = DE7524D52431001D00B924F8 /* Localizable.stringsdict */; };
 		DEE5403A24305B8C00C04B18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5403924305B8C00C04B18 /* AppDelegate.swift */; };
 		DEE5403C24305B8C00C04B18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5403B24305B8C00C04B18 /* SceneDelegate.swift */; };
 		DEE5403E24305B8C00C04B18 /* SetupDeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE5403D24305B8C00C04B18 /* SetupDeckViewController.swift */; };
@@ -29,6 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE7524BF2430EB2500B924F8 /* SetupExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupExerciseViewController.swift; sourceTree = "<group>"; };
+		DE7524C12430EB5100B924F8 /* WorkoutStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStatusViewController.swift; sourceTree = "<group>"; };
+		DE7524C32430EB7000B924F8 /* WorkoutDeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDeckViewController.swift; sourceTree = "<group>"; };
+		DE7524CF2430FBE000B924F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DE7524D42431001D00B924F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		DEE5403624305B8C00C04B18 /* Dekki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dekki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE5403924305B8C00C04B18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEE5403B24305B8C00C04B18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,9 +98,14 @@
 				DEE5405D24305E3E00C04B18 /* Models.swift */,
 				DEE5403B24305B8C00C04B18 /* SceneDelegate.swift */,
 				DEE5403D24305B8C00C04B18 /* SetupDeckViewController.swift */,
+				DE7524BF2430EB2500B924F8 /* SetupExerciseViewController.swift */,
+				DE7524C32430EB7000B924F8 /* WorkoutDeckViewController.swift */,
+				DE7524C12430EB5100B924F8 /* WorkoutStatusViewController.swift */,
 				DEE540612430624400C04B18 /* WorkoutViewController.swift */,
 				DEE5404224305B8D00C04B18 /* Assets.xcassets */,
 				DEE5404424305B8D00C04B18 /* LaunchScreen.storyboard */,
+				DE7524D02430FBE000B924F8 /* Localizable.strings */,
+				DE7524D52431001D00B924F8 /* Localizable.stringsdict */,
 				DEE5403F24305B8C00C04B18 /* Main.storyboard */,
 			);
 			path = Dekki;
@@ -186,8 +201,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE7524CE2430FBE000B924F8 /* Localizable.strings in Resources */,
 				DEE5404624305B8D00C04B18 /* LaunchScreen.storyboard in Resources */,
 				DEE5404324305B8D00C04B18 /* Assets.xcassets in Resources */,
+				DE7524D32431001D00B924F8 /* Localizable.stringsdict in Resources */,
 				DEE5404124305B8C00C04B18 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,8 +225,11 @@
 			files = (
 				DEE540622430624400C04B18 /* WorkoutViewController.swift in Sources */,
 				DEE5403E24305B8C00C04B18 /* SetupDeckViewController.swift in Sources */,
+				DE7524C22430EB5100B924F8 /* WorkoutStatusViewController.swift in Sources */,
+				DE7524C42430EB7000B924F8 /* WorkoutDeckViewController.swift in Sources */,
 				DEE5403A24305B8C00C04B18 /* AppDelegate.swift in Sources */,
 				DEE5403C24305B8C00C04B18 /* SceneDelegate.swift in Sources */,
+				DE7524C02430EB2500B924F8 /* SetupExerciseViewController.swift in Sources */,
 				DEE5405E24305E3E00C04B18 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +253,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		DE7524D02430FBE000B924F8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE7524CF2430FBE000B924F8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DE7524D52431001D00B924F8 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE7524D42431001D00B924F8 /* en */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
 		DEE5403F24305B8C00C04B18 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

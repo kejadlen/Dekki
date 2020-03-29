@@ -8,43 +8,25 @@
 
 import Foundation
 
-class Deck {
-    
-    private var cards: [Card] = {
-        var cards = Rank.allCases.flatMap { rank in
-            Suit.allCases.map { suit in
-                Card(rank: rank, suit: suit)
+class DeckBuilder {
+
+    var exerciseDefinitions = ExerciseDefinition.allCases
+
+    func build() -> [Card] {
+        return exerciseDefinitions.flatMap { exercise in
+            return (1..<13).map { reps in
+                return Card(reps: reps, exercise: exercise)
             }
-        }
-        cards.shuffle()
-        return cards
-    }()
-    
-    func deal() -> Card? {
-        guard let card = cards.popLast() else { return nil }
-        
-        return card
+        }.shuffled()
     }
+
+}
+
+enum ExerciseDefinition: CaseIterable {
+    case jumpingJack, pushUp, sitUp, squat
 }
 
 struct Card {
-    let rank: Rank
-    let suit: Suit
-}
-
-enum Rank: Int, CaseIterable {
-    case ace = 1, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king
-}
-
-enum Suit: Int, CaseIterable, CustomStringConvertible {
-    case clubs = 0, diamonds, hearts, spades
-    
-    var description: String {
-        switch self {
-        case .clubs: return "♣️"
-        case .diamonds: return "♦️"
-        case .hearts: return "♥️"
-        case .spades: return "♠️"
-        }
-    }
+    let reps: UInt
+    let exercise: ExerciseDefinition
 }

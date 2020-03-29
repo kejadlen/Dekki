@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%d jumpingJack reps</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@reps@</string>
+		<key>reps</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string></string>
+			<key>one</key>
+			<string>%d jumping jack</string>
+			<key>two</key>
+			<string></string>
+			<key>few</key>
+			<string></string>
+			<key>many</key>
+			<string></string>
+			<key>other</key>
+			<string>%d jumping jacks</string>
+		</dict>
+	</dict>
+	<key>%d pushUp reps</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@reps@</string>
+		<key>reps</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string></string>
+			<key>one</key>
+			<string>%d push up</string>
+			<key>two</key>
+			<string></string>
+			<key>few</key>
+			<string></string>
+			<key>many</key>
+			<string></string>
+			<key>other</key>
+			<string>%d push-ups</string>
+		</dict>
+	</dict>
+	<key>%d sitUp reps</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@reps@</string>
+		<key>reps</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string></string>
+			<key>one</key>
+			<string>%d sit-up</string>
+			<key>two</key>
+			<string></string>
+			<key>few</key>
+			<string></string>
+			<key>many</key>
+			<string></string>
+			<key>other</key>
+			<string>%d sit-ups</string>
+		</dict>
+	</dict>
+	<key>%d squat reps</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@reps@</string>
+		<key>reps</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string></string>
+			<key>one</key>
+			<string>%d squat</string>
+			<key>two</key>
+			<string></string>
+			<key>few</key>
+			<string></string>
+			<key>many</key>
+			<string></string>
+			<key>other</key>
+			<string>%d squats</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

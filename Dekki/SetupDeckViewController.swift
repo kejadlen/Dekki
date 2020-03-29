@@ -9,14 +9,9 @@
 import UIKit
 
 class SetupDeckViewController: UITableViewController {
-    
-    let exercises: [Suit: String] = [
-        .clubs: "Jumping Jacks",
-        .diamonds: "Push-ups",
-        .hearts: "Sit-ups",
-        .spades: "Squats",
-    ]
 
+    let deckBuilder = DeckBuilder()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,7 +19,7 @@ class SetupDeckViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc = segue.destination as? WorkoutViewController else { return }
         
-        vc.exercises = exercises
+        vc.deck = deckBuilder.build()
     }
 
     @IBAction func unwindFromWorkout(segue: UIStoryboardSegue) {
@@ -32,19 +27,17 @@ class SetupDeckViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return deckBuilder.exerciseDefinitions.count
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        let suit = Suit(rawValue: indexPath.row)!
-        let exercise = exercises[suit]
-        cell.textLabel!.text = "\(suit)"
-        cell.detailTextLabel!.text = exercise
+        let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseDefinitionCell", for: indexPath)
+
+        let exerciseDefinition = deckBuilder.exerciseDefinitions[indexPath.row]
+        cell.textLabel!.text = NSLocalizedString("\(exerciseDefinition)", comment: "")
+
         return cell
     }
-    
-}
-
-// MARK: - SuitExerciseCell
-
-class SuitExerciseCell: UITableViewCell {
     
 }

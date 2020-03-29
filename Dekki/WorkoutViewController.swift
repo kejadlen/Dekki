@@ -10,28 +10,45 @@ import UIKit
 
 class WorkoutViewController: UIViewController {
     
-    let deck = Deck()
-    var exercises: [Suit: String]!
-    
-    @IBOutlet weak var label: UILabel!
-    
+    var deck: [Card]!
+    var currentIndex: UInt = 0 {
+        didSet {
+            guard currentIndex < deck.count else {
+                performSegue(withIdentifier: "unwindFromWorkout", sender: self)
+                return
+            }
+
+            workoutDeckVC.currentIndex = currentIndex
+        }
+    }
+
+    var workoutDeckVC: WorkoutDeckViewController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        deal()
+
+        workoutDeckVC.deck = deck
+        workoutDeckVC.currentIndex = currentIndex
     }
-    
-    @IBAction func didTap(_ sender: Any) {
-        deal()
-    }
-    
-    private func deal() {
-        guard let card = deck.deal() else {
-            performSegue(withIdentifier: "unwindFromWorkout", sender: self)
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.destination {
+        case _ as WorkoutStatusViewController:
+            return
+        case let vc as WorkoutDeckViewController:
+            workoutDeckVC = vc
+            workoutDeckVC.delegate = self
+        default:
             return
         }
-        
-        label.text = "\(card.rank.rawValue) \(exercises[card.suit]!)"
     }
     
+}
+
+extension WorkoutViewController: WorkoutDeckViewControllerDelegate {
+
+    func progressToNextCard(from vc: WorkoutDeckViewController) {
+        currentIndex += 1
+    }
+
 }
