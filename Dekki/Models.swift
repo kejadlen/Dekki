@@ -14,7 +14,7 @@ class DeckBuilder {
 
     func build() -> [Card] {
         return exerciseDefinitions.flatMap { exercise in
-            return (1..<13).map { reps in
+            return (1..<14).map { reps in
                 return Card(reps: reps, exercise: exercise)
             }
         }.shuffled()

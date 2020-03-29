@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol WorkoutDeckViewControllerDelegate: class {
-    func progressToNextCard(from vc: WorkoutDeckViewController)
-}
-
 class WorkoutDeckViewController: UITableViewController {
-
-    weak var delegate: WorkoutDeckViewControllerDelegate?
 
     var deck: [Card]!
     var currentIndex: UInt! {
@@ -25,10 +19,6 @@ class WorkoutDeckViewController: UITableViewController {
     }
 
     @IBOutlet weak var exerciseLabel: UILabel!
-
-    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
-        delegate?.progressToNextCard(from: self)
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return deck.count

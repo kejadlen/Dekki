@@ -37,18 +37,12 @@ class WorkoutViewController: UIViewController {
             return
         case let vc as WorkoutDeckViewController:
             workoutDeckVC = vc
-            workoutDeckVC.delegate = self
         default:
             return
         }
     }
     
-}
-
-extension WorkoutViewController: WorkoutDeckViewControllerDelegate {
-
-    func progressToNextCard(from vc: WorkoutDeckViewController) {
+    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         currentIndex += 1
     }
-
 }

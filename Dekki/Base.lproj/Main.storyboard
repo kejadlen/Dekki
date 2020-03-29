@@ -66,13 +66,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcg-MD-eYo">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="163.5"/>
                                         <connections>
                                             <segue destination="rsn-eO-B8G" kind="embed" id="Xhh-dY-6k8"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pM-x0-uk0">
-                                        <rect key="frame" x="0.0" y="164" width="414" height="654"/>
+                                        <rect key="frame" x="0.0" y="163.5" width="414" height="654.5"/>
                                         <connections>
                                             <segue destination="LzE-0g-Isn" kind="embed" id="P84-1e-sCD"/>
                                         </connections>
@@ -92,6 +92,9 @@
                             <constraint firstItem="Rah-BM-cpR" firstAttribute="trailing" secondItem="cFb-zR-Vjc" secondAttribute="trailing" id="yvA-tF-e7V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rah-BM-cpR"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Iyq-Od-yvu" appends="YES" id="PuH-Mk-PHg"/>
+                        </connections>
                     </view>
                     <connections>
                         <segue destination="Ou4-cK-AWD" kind="unwind" identifier="unwindFromWorkout" unwindAction="unwindFromWorkoutWithSegue:" id="bfe-Xl-LDq"/>
@@ -99,6 +102,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fC-nU-uLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Ou4-cK-AWD" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Iyq-Od-yvu">
+                    <connections>
+                        <action selector="didTap:" destination="QJr-Qn-GfC" id="xPw-Yy-dDG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1998.5507246376812" y="-535.04464285714278"/>
         </scene>
@@ -140,7 +148,7 @@
             <objects>
                 <viewController id="rsn-eO-B8G" customClass="WorkoutStatusViewController" customModule="Dekki" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jk6-Cj-SL0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="163.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6i-Gv-Fgu">
@@ -170,7 +178,7 @@
             <objects>
                 <tableViewController id="LzE-0g-Isn" customClass="WorkoutDeckViewController" customModule="Dekki" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SH4-3B-mCy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="654"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="654.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -219,11 +227,6 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jey-Fl-bNw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Iyq-Od-yvu">
-                    <connections>
-                        <action selector="didTap:" destination="LzE-0g-Isn" id="aRG-dH-I9j"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2981" y="-344"/>
         </scene>
