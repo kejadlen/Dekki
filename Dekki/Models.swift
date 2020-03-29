@@ -26,7 +26,14 @@ enum ExerciseDefinition: CaseIterable {
     case jumpingJack, pushUp, sitUp, squat
 }
 
-struct Card {
+struct Card: CustomStringConvertible {
     let reps: UInt
     let exercise: ExerciseDefinition
+
+    var description: String {
+        String.localizedStringWithFormat(
+            NSLocalizedString("%d \(exercise) reps", comment: ""),
+            reps
+        )
+    }
 }

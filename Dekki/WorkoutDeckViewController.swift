@@ -6,14 +6,21 @@
 //  Copyright © 2020 Arbitrary Definitions. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 
 class WorkoutDeckViewController: UITableViewController {
+
+    let speechSynthesizer = AVSpeechSynthesizer()
 
     var deck: [Card]!
     var currentIndex: UInt! {
         didSet {
             tableView.reloadData()
+
+            let utterance = AVSpeechUtterance(string: "\(deck[Int(currentIndex)])")
+            speechSynthesizer.speak(utterance)
+
             tableView.scrollToRow(at: [0, Int(currentIndex)], at: .middle, animated: true)
         }
     }
@@ -28,11 +35,7 @@ class WorkoutDeckViewController: UITableViewController {
         let identifier = (indexPath.row == currentIndex) ? "currentCell" : "cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
-        let card = deck[indexPath.row]
-        cell.textLabel!.text = String.localizedStringWithFormat(
-            NSLocalizedString("%d \(card.exercise) reps", comment: ""),
-            card.reps
-        )
+        cell.textLabel!.text = "\(deck[indexPath.row])"
 
         return cell
     }

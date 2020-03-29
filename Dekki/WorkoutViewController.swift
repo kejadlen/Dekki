@@ -9,7 +9,7 @@
 import UIKit
 
 class WorkoutViewController: UIViewController {
-    
+
     var deck: [Card]!
     var currentIndex: UInt = 0 {
         didSet {
