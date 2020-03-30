@@ -12,25 +12,28 @@ class SetupExerciseViewController: UITableViewController {
 
     @IBOutlet weak var exerciseLabel: UILabel!
     @IBOutlet weak var aceRepsSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var faceCardsSegmentedControl: UISegmentedControl!
 
-    var exerciseDefinition: ExerciseDefinition!
+    var exerciseConfig: ExerciseConfig! {
+        didSet { render() }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        exerciseLabel.text = "\(exerciseDefinition!.exercise)"
-        aceRepsSegmentedControl.selectedSegmentIndex = Int(exerciseDefinition!.aceRepetitions.rawValue)
+        exerciseLabel.text = "\(exerciseConfig!.exercise)"
+        aceRepsSegmentedControl.selectedSegmentIndex = Int(exerciseConfig!.aceConfig.rawValue)
     }
 
     @IBAction func aceRepsChanged(_ sender: UISegmentedControl) {
-        var aceReps: FaceRepetitions
+        var aceReps: AceConfig
         switch sender.selectedSegmentIndex {
-        case 0: aceReps = .one
-        case 1: aceReps = .rank
+        case 0: aceReps = .low
+        case 1: aceReps = .high
         default: fatalError()
         }
 
-        exerciseDefinition.aceRepetitions = aceReps
+        exerciseConfig.aceConfig = aceReps
     }
 
     @IBAction func unwindFromSelectExercise(segue: UIStoryboardSegue) {
@@ -39,8 +42,12 @@ class SetupExerciseViewController: UITableViewController {
             let exercise = vc.selectedExercise
         else { return }
 
-        exerciseDefinition.exercise = exercise
-        exerciseLabel.text = "\(exerciseDefinition!.exercise)"
+        exerciseConfig.exercise = exercise
+        exerciseLabel.text = "\(exerciseConfig!.exercise)"
+    }
+
+    private func render() {
+        guard view != nil else { return }
     }
 
 }

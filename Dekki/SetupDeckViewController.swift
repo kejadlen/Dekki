@@ -10,7 +10,7 @@ import UIKit
 
 class SetupDeckViewController: UITableViewController {
 
-    var exerciseDefinitions = Exercise.allCases.map { ExerciseDefinition(exercise: $0) }
+    var exerciseConfigs = Exercise.allCases.map { ExerciseConfig(exercise: $0) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class SetupDeckViewController: UITableViewController {
             case let vc as SetupExerciseViewController:
                 guard let indexPath = tableView.indexPathForSelectedRow else { return }
 
-                vc.exerciseDefinition = exerciseDefinitions[indexPath.row]
+                vc.exerciseConfig = exerciseConfigs[indexPath.row]
             default:
                 return
             }
@@ -37,14 +37,14 @@ class SetupDeckViewController: UITableViewController {
     // MARK: - UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exerciseDefinitions.count
+        return exerciseConfigs.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseDefinitionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseConfigCell", for: indexPath)
 
-        let exerciseDefinition = exerciseDefinitions[indexPath.row]
-        cell.textLabel!.text = "\(exerciseDefinition.exercise)"
+        let exerciseConfig = exerciseConfigs[indexPath.row]
+        cell.textLabel!.text = "\(exerciseConfig.exercise)"
 
         return cell
     }
@@ -67,7 +67,7 @@ class SetupDeckViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
 
         let vc = segue.source as! SetupExerciseViewController
-        exerciseDefinitions[indexPath.row] = vc.exerciseDefinition
+        exerciseConfigs[indexPath.row] = vc.exerciseConfig
         tableView.reloadRows(at: [indexPath], with: .automatic)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -75,18 +75,13 @@ class SetupDeckViewController: UITableViewController {
     // MARK: - Private
 
     private func makeDeck() -> [Card] {
-        return exerciseDefinitions.flatMap { exerciseDef in
+        return exerciseConfigs.flatMap { exerciseConfig in
             return (1..<14).map { rank in
                 guard rank != 1 else {
-                    var reps: UInt
-                    switch exerciseDef.aceRepetitions {
-                    case .one: reps = 1
-                    case .rank: reps = 14
-                    }
-                    return Card(reps: reps, exercise: exerciseDef.exercise)
+                    return Card(reps: exerciseConfig.aceReps, exercise: exerciseConfig.exercise)
                 }
 
-                return Card(reps: UInt(rank), exercise: exerciseDef.exercise)
+                return Card(reps: UInt(rank), exercise: exerciseConfig.exercise)
             }
         }.shuffled()
     }

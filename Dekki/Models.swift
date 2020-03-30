@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct ExerciseDefinition {
+struct ExerciseConfig {
     var exercise: Exercise
-    var aceRepetitions: FaceRepetitions = .rank
+    var aceConfig: AceConfig = .high
+
+    var aceReps: UInt {
+        switch aceConfig {
+        case .low: return 1
+        case .high: return 14
+        }
+    }
 }
 
 enum Exercise: String, CaseIterable, CustomStringConvertible {
@@ -21,16 +28,9 @@ enum Exercise: String, CaseIterable, CustomStringConvertible {
     }
 }
 
-enum FaceRepetitions: UInt, CaseIterable {
-    case one = 0
-    case rank
-
-    func reps(from rank: UInt) -> UInt {
-        switch self {
-        case .one: return 1
-        case .rank: return rank
-        }
-    }
+enum AceConfig: UInt, CaseIterable {
+    case low = 0
+    case high
 }
 
 struct Card: CustomStringConvertible {

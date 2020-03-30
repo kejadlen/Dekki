@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseDefinitionCell" textLabel="68c-as-ddu" style="IBUITableViewCellStyleDefault" id="vNk-3p-PXu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseConfigCell" textLabel="68c-as-ddu" style="IBUITableViewCellStyleDefault" id="vNk-3p-PXu">
                                 <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vNk-3p-PXu" id="hgS-2F-viJ">
@@ -165,10 +165,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Zj-Fm-Fug">
-                                                    <rect key="frame" x="287" y="6.5" width="67" height="32"/>
+                                                    <rect key="frame" x="201" y="6.5" width="153" height="32"/>
                                                     <segments>
-                                                        <segment title="1"/>
-                                                        <segment title="14"/>
+                                                        <segment title="Low (1)"/>
+                                                        <segment title="High (14)"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="aceRepsChanged:" destination="F07-r9-JBB" eventType="valueChanged" id="bPM-L2-P2N"/>
@@ -182,6 +182,41 @@
                                                 <constraint firstItem="vaE-6X-ybf" firstAttribute="leading" secondItem="iEx-CQ-avp" secondAttribute="leadingMargin" id="Vpq-PZ-N07"/>
                                                 <constraint firstItem="1Zj-Fm-Fug" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vaE-6X-ybf" secondAttribute="trailing" id="Vr6-z6-Wso"/>
                                                 <constraint firstItem="vaE-6X-ybf" firstAttribute="centerY" secondItem="iEx-CQ-avp" secondAttribute="centerY" id="cF4-ft-np5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Xsp-T6-dym">
+                                        <rect key="frame" x="20" y="198.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xsp-T6-dym" id="gYn-yb-1W5">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jack/Queen/King" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zd6-7W-22m">
+                                                    <rect key="frame" x="20" y="11" width="131" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="W07-vs-DH7">
+                                                    <rect key="frame" x="205" y="6.5" width="149" height="32"/>
+                                                    <segments>
+                                                        <segment title="1"/>
+                                                        <segment title="10"/>
+                                                        <segment title="Rank"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="aceRepsChanged:" destination="F07-r9-JBB" eventType="valueChanged" id="Hw1-AM-Gan"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zd6-7W-22m" firstAttribute="leading" secondItem="gYn-yb-1W5" secondAttribute="leadingMargin" id="YEX-1r-3uS"/>
+                                                <constraint firstItem="W07-vs-DH7" firstAttribute="firstBaseline" secondItem="Zd6-7W-22m" secondAttribute="firstBaseline" id="chM-FV-D5Q"/>
+                                                <constraint firstItem="Zd6-7W-22m" firstAttribute="centerY" secondItem="gYn-yb-1W5" secondAttribute="centerY" id="n5r-wZ-ONU"/>
+                                                <constraint firstItem="W07-vs-DH7" firstAttribute="centerY" secondItem="gYn-yb-1W5" secondAttribute="centerY" id="x1K-ou-3Hl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="W07-vs-DH7" secondAttribute="trailing" id="x2I-TO-kqW"/>
+                                                <constraint firstItem="W07-vs-DH7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zd6-7W-22m" secondAttribute="trailing" id="y6g-Wy-hr3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -208,6 +243,7 @@
                     <connections>
                         <outlet property="aceRepsSegmentedControl" destination="1Zj-Fm-Fug" id="kjN-4S-BOz"/>
                         <outlet property="exerciseLabel" destination="s3s-kz-hfx" id="dY3-YO-yN0"/>
+                        <outlet property="faceCardsSegmentedControl" destination="W07-vs-DH7" id="4po-58-345"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnV-h5-pu1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -296,6 +332,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="C6i-Gv-Fgu" secondAttribute="trailing" id="aZA-vh-uPM"/>
                             <constraint firstItem="C6i-Gv-Fgu" firstAttribute="leading" secondItem="Jk6-Cj-SL0" secondAttribute="leadingMargin" id="kRS-bF-uy9"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="C8x-GP-Nod"/>
                     </view>
                     <connections>
                         <outlet property="durationLabel" destination="C6i-Gv-Fgu" id="wv3-s0-6sI"/>
