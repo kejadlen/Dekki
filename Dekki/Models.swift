@@ -3,36 +3,43 @@
 //  Dekki
 //
 //  Created by Alpha on 3/28/20.
-//  Copyright © 2020 Arbitrary Definitions. All rights reserved.
+//  Copyright © 2020 Arbitrary Definitions. All rights reserved.git
 //
 
 import Foundation
 
-class DeckBuilder {
-
-    var exerciseDefinitions = ExerciseDefinition.allCases
-
-    func build() -> [Card] {
-        return exerciseDefinitions.flatMap { exercise in
-            return (1..<14).map { reps in
-                return Card(reps: reps, exercise: exercise)
-            }
-        }.shuffled()
-    }
-
+struct ExerciseDefinition {
+    var exercise: Exercise
+    var aceRepetitions: FaceRepetitions = .rank
 }
 
-enum ExerciseDefinition: CaseIterable {
+enum Exercise: String, CaseIterable, CustomStringConvertible {
     case jumpingJack, pushUp, sitUp, squat
+
+    var description: String {
+        NSLocalizedString("\(self.rawValue)", comment: "")
+    }
+}
+
+enum FaceRepetitions: UInt, CaseIterable {
+    case one = 0
+    case rank
+
+    func reps(from rank: UInt) -> UInt {
+        switch self {
+        case .one: return 1
+        case .rank: return rank
+        }
+    }
 }
 
 struct Card: CustomStringConvertible {
     let reps: UInt
-    let exercise: ExerciseDefinition
+    let exercise: Exercise
 
     var description: String {
         String.localizedStringWithFormat(
-            NSLocalizedString("%d \(exercise) reps", comment: ""),
+            NSLocalizedString("%d \(exercise.rawValue) reps", comment: ""),
             reps
         )
     }
