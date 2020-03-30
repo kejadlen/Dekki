@@ -77,12 +77,19 @@ class SetupDeckViewController: UITableViewController {
     private func makeDeck() -> [Card] {
         return exerciseConfigs.flatMap { exerciseConfig in
             return (1..<14).map { rank in
-                guard rank != 1 else {
+                switch rank {
+                case 1:
                     return Card(reps: exerciseConfig.aceReps, exercise: exerciseConfig.exercise)
+                case 2..<11:
+                    return Card(reps: UInt(rank), exercise: exerciseConfig.exercise)
+                case 11..<14:
+                    return Card(reps: exerciseConfig.faceReps(for: UInt(rank)), exercise: exerciseConfig.exercise)
+                default:
+                    fatalError()
                 }
-
-                return Card(reps: UInt(rank), exercise: exerciseConfig.exercise)
             }
+        }.filter { card in
+            card.reps > 0
         }.shuffled()
     }
 

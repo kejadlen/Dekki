@@ -11,11 +11,24 @@ import Foundation
 struct ExerciseConfig {
     var exercise: Exercise
     var aceConfig: AceConfig = .high
+    var faceConfig: FaceConfig = .rank
 
-    var aceReps: UInt {
-        switch aceConfig {
-        case .low: return 1
-        case .high: return 14
+    var aceReps: UInt { aceReps(with: aceConfig) }
+
+    func aceReps(with aceConfig: AceConfig) -> UInt {
+        switch (aceConfig, faceConfig) {
+        case (.none, _): return 0
+        case (.low, _): return 1
+        case (.high, .none), (.high, .ten): return 10
+        case (.high, .rank): return 14
+        }
+    }
+
+    func faceReps(for rank: UInt) -> UInt {
+        switch faceConfig {
+        case .none: return 0
+        case .ten: return 10
+        case .rank: return rank
         }
     }
 }
@@ -29,8 +42,11 @@ enum Exercise: String, CaseIterable, CustomStringConvertible {
 }
 
 enum AceConfig: UInt, CaseIterable {
-    case low = 0
-    case high
+    case none = 0, low, high
+}
+
+enum FaceConfig: UInt, CaseIterable {
+    case none = 0, ten, rank
 }
 
 struct Card: CustomStringConvertible {

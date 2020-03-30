@@ -12,7 +12,7 @@ class SetupExerciseViewController: UITableViewController {
 
     @IBOutlet weak var exerciseLabel: UILabel!
     @IBOutlet weak var aceRepsSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var faceCardsSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var faceRepsSegmentedControl: UISegmentedControl!
 
     var exerciseConfig: ExerciseConfig! {
         didSet { render() }
@@ -21,19 +21,15 @@ class SetupExerciseViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        exerciseLabel.text = "\(exerciseConfig!.exercise)"
-        aceRepsSegmentedControl.selectedSegmentIndex = Int(exerciseConfig!.aceConfig.rawValue)
+        render()
     }
 
-    @IBAction func aceRepsChanged(_ sender: UISegmentedControl) {
-        var aceReps: AceConfig
-        switch sender.selectedSegmentIndex {
-        case 0: aceReps = .low
-        case 1: aceReps = .high
-        default: fatalError()
-        }
+    @IBAction func aceConfigChanged(_ sender: UISegmentedControl) {
+        exerciseConfig.aceConfig = AceConfig(rawValue: UInt(sender.selectedSegmentIndex))!
+    }
 
-        exerciseConfig.aceConfig = aceReps
+    @IBAction func faceConfigChanged(_ sender: UISegmentedControl) {
+        exerciseConfig.faceConfig = FaceConfig(rawValue: UInt(sender.selectedSegmentIndex))!
     }
 
     @IBAction func unwindFromSelectExercise(segue: UIStoryboardSegue) {
@@ -48,6 +44,15 @@ class SetupExerciseViewController: UITableViewController {
 
     private func render() {
         guard view != nil else { return }
+
+        exerciseLabel.text = "\(exerciseConfig!.exercise)"
+
+        aceRepsSegmentedControl.setTitle(
+            String.localizedStringWithFormat(NSLocalizedString("aceHigh", comment: ""), exerciseConfig.aceReps(with: .high)),
+            forSegmentAt: Int(AceConfig.high.rawValue)
+        )
+        aceRepsSegmentedControl.selectedSegmentIndex = Int(exerciseConfig!.aceConfig.rawValue)
+        faceRepsSegmentedControl.selectedSegmentIndex = Int(exerciseConfig!.faceConfig.rawValue)
     }
 
 }
